@@ -35,11 +35,11 @@ async function go() {
       contentPaths,
     })
 
-    const response = await postJSON({
+    await postJSON({
       postData: { paths: contentPaths, sha: compareSha },
     })
 
-    console.error('Content refreshed 🚀', { response })
+    console.error('Content refreshed 🚀')
   } else {
     console.error('Nothing to refresh ✨')
   }

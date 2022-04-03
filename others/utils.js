@@ -36,12 +36,12 @@ async function postJSON({
   return new Promise((resolve, reject) => {
     const postDataString = JSON.stringify(postData)
     const searchParams = new URLSearchParams([
-      ['_data', 'routes/_content/refresh-content'],
+      ['_data', 'routes/_content/update-content'],
     ])
     const options = {
       hostname: `${process.env.FLY_APP_NAME}.fly.dev`,
       port: 443,
-      path: `/_content/refresh-content?${searchParams}`,
+      path: `/_content/update-content?${searchParams}`,
       method: 'POST',
       headers: {
         auth: process.env.REFRESH_TOKEN,
@@ -53,14 +53,9 @@ async function postJSON({
     }
     try {
       const req = http.request(options, res => {
-        let data = ''
-
-        res.on('data', chunk => {
-          data += chunk
-        })
         res.on('end', () => {
           try {
-            resolve(JSON.parse(data))
+            resolve()
           } catch (e) {
             console.error('Error!', err.message)
             reject(data)
