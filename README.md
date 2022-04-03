@@ -95,7 +95,7 @@ Before proceeding to deploy our app, we have some steps to take care of:
 - Create a new app on Fly
 
 ```sh
-flyctl launch --name my-remix-app-93c6 --copy-config --no-deploy
+flyctl launch --name my-remix-app-93c7 --copy-config --no-deploy
 ```
 
 > ⚠️ Remember not to deploy since we have some setup steps left to complete!
